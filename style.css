@@ -30,9 +30,6 @@ footer ul li a {
         color: #000000;
     }
 
-    .btn-comprar {
-        color: #c62828;
-    }
     ============================================================
     Despues se refactorizo: se elimino la regla con #id y se dejo
     solo el sistema plano basado en clases (la regla .btn-comprar
@@ -44,3 +41,6 @@ footer ul li a {
 .btn-comprar {
     color: #c62828;
 }
+ footer ul li a {
+    color: #00ffff;
+ }
