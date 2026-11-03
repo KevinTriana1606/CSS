@@ -1,57 +1,168 @@
-body {
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     font-family: sans-serif;
-    color: #222222;
-    background-color: #c3c3c3;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+/* ================= HEADER ================= */
+header {
+    width: 100%;
+    background-color: #e3f2fd; /* Azul pastel */
+    background-image: url('img/header.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 15px;
 }
 
 header nav ul li a {
-    color: #1a237e;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+
+/* ================= ASIDE (Izquierda) ================= */
+aside {
+    float: left;
+    width: 25%;
+    padding: 20px;
+    background-color: #f3e5f5;
+}
+
+aside h2 {
+    font-size: 1.2rem;
+    color: #4a148c;
+    border-bottom: 1px solid #e1bee7;
+    padding-bottom: 10px;
+}
+
+aside ul {
+    padding: 10px;
+    margin: 10px;
+}
+
+aside ul li {
+    margin-bottom: 1px;
 }
 
 aside ul li a {
-    color: #1a7f5a;
+    color: #6a1b9a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+aside ul li a:hover {
+    text-decoration: underline;
+    color: #9c27b0;
+}
+
+/* ================= MAIN (Derecha) ================= */
+main {
+    float: right;
+    width: 75%;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+main h1 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-top: 0;
+}
+
+section {
+    font-size: 0; 
+}
+
+/* Cajas de producto (2 por fila) */
+article {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%; 
+    margin: 1%;
+    padding: 20px;
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+article h2 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    color: #222;
+}
+
+article p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.btn-comprar {
+    display: inline-block;
+    margin-top: 10px;
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.btn-comprar:hover {
+    text-decoration: underline;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    clear: both;
+    width: 100%;
+    background-color: #eceff1;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #cfd8dc;
+}
+
+footer p {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+    color: #546e7a;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 10px;
 }
 
 footer ul li a {
-    color: #6a1b9a;
+    color: #1e88e5;
+    text-decoration: none;
 }
 
-/*
-    ============================================================
-    VERSION ANTES DE REFACTORIZAR (lo que se hizo para el Reto 2)
-    ============================================================
-    En esta version se tenian las dos reglas siguientes, con el ID
-    declarado ARRIBA y la clase ABAJO. Al abrir el navegador, el
-    enlace destacado se veia de color #000000 (negro) y no de color
-    #c62828, porque el ID (100 pts) aplasto a la clase (10 pts)
-    aunque la clase estuviera despues en la hoja de estilos. Es
-    decir, la especificidad gano sobre el orden de la cascada.
-
-    #btn-destacado {
-        color: #000000;
-    }
-
-    ============================================================
-    Despues se refactorizo: se elimino la regla con #id y se dejo
-    solo el sistema plano basado en clases (la regla .btn-comprar
-    que aparece activa abajo). No se uso !important en ningun
-    momento.
-    ============================================================
-*/
-
-.btn-comprar {
-    color: #c62828;
-}
- footer ul li a {
-    color: #00ffff;
-}
-
-section{
-    background-color: darkcyan;
-}
-aside {
-    background-color: darkmagenta;
-}
-footer {
-    background-color: rosybrown;
+footer ul li a:hover {
+    text-decoration: underline;
 }

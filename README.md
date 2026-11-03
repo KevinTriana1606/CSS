@@ -1,15 +1,15 @@
-Momento 2 - Mision de Apropiacion (Trabajo Individual)
+MOMENTO 2 - MISION DE APROPIACION (TRABAJO INDIVIDUAL)
 
 Catalogo semantico de productos desarrollado en HTML5 y CSS3, con enfasis en
-maquetacion semantica, herencia, selectores combinados y jerarquia de
-especificidad CSS.
+maquetacion semantica, herencia, selectores combinados, jerarquia de
+especificidad CSS y anatomia espacial (modelo de caja).
 
 
 ESTRUCTURA DEL PROYECTO
 
 index.html   -> Maquetado semantico del catalogo
-style.css    -> Hoja de estilos (herencia, selectores combinados y cascada)
-README.md    -> Documentacion y calculo de especificidad
+style.css    -> Hoja de estilos (herencia, selectores combinados, cascada y modelo de caja)
+README.md    -> Documentacion tecnica y calculo de especificidad
 
 
 MAQUETADO SEMANTICO IMPLEMENTADO
@@ -30,7 +30,7 @@ HERENCIA
 En la etiqueta body se declararon:
 
 font-family: sans-serif;
-color: #222222;
+color: #333333;
 
 Los encabezados, parrafos y listas heredan estos valores sin declararlos uno
 por uno, lo que demuestra la herencia del navegador.
@@ -86,22 +86,74 @@ REFACTORIZACION (ESTANDARIZACION DE LA ESPECIFICIDAD)
 Se elimino la regla basada en id y el diseno quedo resuelto con un sistema
 plano basado exclusivamente en etiquetas y clases:
 
-.btn-comprar { color: #c62828; }
+.btn-comprar { color: #d32f2f; }
 
 No se uso !important en ningun punto del CSS.
 La colision visual se resolvio usando solo la clase, sin recurrir a IDs.
 El estilo de cada zona se mantiene aislado con selectores combinados.
 
 
+ANATOMIA ESPACIAL (ESTRUCTURA SIN FLEXBOX NI GRID)
+
+Para distribuir las cajas principales de la interfaz, se usaron tecnicas
+tradicionales de CSS:
+- Se aplico box-sizing: border-box; en el selector universal * para que los
+  elementos no crezcan de mas al agregar rellenos y bordes.
+- El cuerpo de la pagina se dividio en supercajas (con colores suaves).
+- El aside ocupa el 25% a la izquierda usando float: left.
+- El main ocupa el 75% a la derecha usando float: right.
+- El footer usa clear: both para obligarse a si mismo a bajar y ubicarse
+  siempre en la parte inferior.
+- Los articulos (tarjetas de producto) usan display: inline-block con un
+  ancho del 48% para lograr una cuadricula de dos columnas.
+- Se aplico padding: 20px y margin: 1% a los articulos para inyectar aire
+  interno y separarlos entre si.
+- Se aplico una imagen de fondo al header con background-image, ajustando
+  su tamano con background-size: cover y su posicion con
+  background-position: center.
+
+
+HALLAZGOS: EL MODELO DE CAJA
+
+1. Diferencia practica entre Margin y Padding
+El padding es el espacio interno de una caja. Separa el contenido (texto,
+enlaces, imagenes) del borde de la propia caja y se pinta con el color de
+fondo del elemento. El margin es el espacio externo. Separa la caja de sus
+elementos vecinos y no se pinta con el fondo del elemento. En resumen, el
+padding da aire hacia adentro y el margin empuja hacia afuera.
+
+2. Por que es obligatorio usar box-sizing: border-box
+Por defecto el navegador usa content-box. Esto significa que si a un elemento
+le declaras width: 100px y le agregas 20px de padding y 1px de borde por
+lado, el ancho real en pantalla sera 142px. Esto rompe la maqueta porque los
+elementos crecen mas de lo planeado.
+Al usar border-box, el padding y el borde se calculan dentro del ancho
+declarado. Si pides 100px, esos 100px incluyen el contenido, el padding y el
+borde. El elemento respeta el tamano asignado y la estructura se mantiene
+estable sin hacer calculos matematicos manuales.
+
+3. Como se ven afectados los elementos hermanos cuando a uno se le aplica un
+   margen grande
+Al aplicar un margen grande a un hermano, este empuja a los demas. Si a un
+article se le pone un margin-bottom grande, el elemento que esta debajo se
+vera desplazado hacia abajo. Ademas, en CSS los margenes verticales de dos
+elementos hermanos se colapsan. Es decir, no se suman. Si el primer elemento
+tiene un margen inferior de 40px y el segundo un margen superior de 15px, el
+espacio real entre ellos sera de 40px (se toma el valor mayor).
+
+
 VERSIONADO
 
-git commit -m "feat(styles): maquetar catalogo semantico y aplicar jerarquia CSS"
-git push origin develop
+git add .
+git commit -m "feat(ui): implementar modelo de caja y backgrounds"
+git push origin feature/modelo-caja
 
 
 COMO VISUALIZARLO
 
 1. Clonar el repositorio.
 2. Abrir index.html en el navegador o usar Live Server en VS Code.
-3. Inspeccionar los elementos con DevTools para comprobar la herencia y la
-   especificidad aplicada a cada enlace.
+3. Inspeccionar los elementos con DevTools (pestana Computed o Calculado)
+   haciendo clic sobre un producto para comprobar que el padding de 20px,
+   el margin de 1% y el display: inline-block coinciden exactamente con el
+   codigo programado en CSS.
