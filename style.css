@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif;
+    color: #222222;
+}
+
+header nav ul li a {
+    color: #1a237e;
+}
+
+aside ul li a {
+    color: #1a7f5a;
+}
+
+footer ul li a {
+    color: #6a1b9a;
+}
+
+/*
+    ============================================================
+    VERSION ANTES DE REFACTORIZAR (lo que se hizo para el Reto 2)
+    ============================================================
+    En esta version se tenian las dos reglas siguientes, con el ID
+    declarado ARRIBA y la clase ABAJO. Al abrir el navegador, el
+    enlace destacado se veia de color #000000 (negro) y no de color
+    #c62828, porque el ID (100 pts) aplasto a la clase (10 pts)
+    aunque la clase estuviera despues en la hoja de estilos. Es
+    decir, la especificidad gano sobre el orden de la cascada.
+
+    #btn-destacado {
+        color: #000000;
+    }
+
+    .btn-comprar {
+        color: #c62828;
+    }
+    ============================================================
+    Despues se refactorizo: se elimino la regla con #id y se dejo
+    solo el sistema plano basado en clases (la regla .btn-comprar
+    que aparece activa abajo). No se uso !important en ningun
+    momento.
+    ============================================================
+*/
+
+.btn-comprar {
+    color: #c62828;
+}
