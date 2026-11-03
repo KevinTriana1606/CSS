@@ -1,6 +1,7 @@
 body {
     font-family: sans-serif;
     color: #222222;
+    background-color: #c3c3c3;
 }
 
 header nav ul li a {
@@ -43,4 +44,14 @@ footer ul li a {
 }
  footer ul li a {
     color: #00ffff;
- }
+}
+
+section{
+    background-color: darkcyan;
+}
+aside {
+    background-color: darkmagenta;
+}
+footer {
+    background-color: rosybrown;
+}
