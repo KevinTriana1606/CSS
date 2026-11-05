@@ -194,3 +194,17 @@ introducir valores arbitrarios. Esto evita que dos secciones "casi iguales" term
 con tonos o separaciones ligeramente distintas, y convierte a `:root` en la única
 fuente de verdad del sistema de diseño: si un color o espaciado debe cambiar, se
 cambia una vez y no en decenas de reglas dispersas.
+
+## Hallazgos: Pseudoclases y Pseudoelementos
+
+1. **Diferencia funcional entre una pseudoclase y un pseudoelemento:**
+Una pseudoclase (como `:hover`, `:active` o `:focus`) se encarga de reaccionar a los eventos o al estado del usuario sobre un elemento que ya existe en el HTML. Al aplicar pseudoclases, se pueden usar propiedades como `transition` junto con curvas de velocidad como `ease` para lograr que esos cambios de estado (por ejemplo, el color de fondo) ocurran de forma suave y fluida, mejorando la experiencia visual. Por otro lado, un pseudoelemento (como `::before` o `::after`) inyecta contenido o decoración adicional que no está escrito directamente en el HTML.
+
+2. **Importancia técnica de la pseudoclase `:focus` para la accesibilidad web:**
+Es fundamental porque garantiza que los usuarios que navegan sin ratón (utilizando la tecla Tab en el teclado) puedan identificar claramente en qué enlace o botón se encuentran ubicados en ese momento. Aplicar un contorno visible (`outline` personalizado) asegura que la interfaz sea usable e inclusiva para cualquier persona.
+
+3. **Buena práctica de inyectar elementos decorativos desde CSS con `::before`/`::after`:**
+Mantener los estilos decorativos en el CSS a través de pseudoelementos nos permite conservar el archivo HTML totalmente limpio y semántico. En lugar de ensuciar el código con etiquetas vacías o contenedores adicionales solo para lograr un efecto visual (como la etiqueta de "¡Oferta!"), el contenido virtual se genera dinámicamente. Esto hace que el código sea más fácil de leer, mantener y entender.
+
+4. **Uso de `transition` y `ease` para microinteracciones:**
+La propiedad `transition` y la función de temporización `ease` (vistas en el CSS) son clave para la retroalimentación táctil. Permiten que cambios bruscos de estado, como el hundimiento de un botón con `:active` o el cambio de color con `:hover`, se perciban como animaciones naturales y agradables. Esto eleva la calidad de la interfaz sin necesidad de recurrir a JavaScript o animaciones complejas.
