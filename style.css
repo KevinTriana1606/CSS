@@ -198,3 +198,171 @@ footer ul li a {
 footer ul li a:hover {
     text-decoration: underline;
 }
+
+/* ================= HEADER ================= */
+header nav ul li a {
+    color: var(--color-texto-invertido);
+    font-weight: bold;
+    text-decoration: none;
+    padding: var(--espaciado-pequeno);
+    position: relative;
+    transition: color 0.3s ease;
+    border-radius: 9px;
+}
+
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--color-texto-invertido);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+header nav ul li a:focus {
+    outline: 2px solid var(--color-texto-invertido);
+    outline-offset: 4px;
+}
+
+/* ================= ASIDE: INTERACTIVIDAD ================= */
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside ul li {
+    margin-bottom: var(--espaciado-pequeno);
+}
+
+aside ul li a {
+    display: block;
+    padding: var(--espaciado-pequeno) var(--espaciado-medio);
+    background-color: var(--color-fondo);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+aside ul li a::before {
+    content: "• ";
+}
+
+aside ul li a:hover {
+    background-color: var(--color-enlace-aside-hover);
+    color: var(--color-texto-invertido);
+}
+
+aside ul li a:focus {
+    outline: 2px solid var(--color-secundario);
+    outline-offset: 2px;
+}
+
+/* ================= MAIN: TARJETAS ================= */
+article {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    margin: 1%;
+    padding: var(--espaciado-grande);
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde-articulo);
+    border-radius: 12px;
+    font-size: 16px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+article h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: var(--espaciado-medio);
+    color: var(--color-texto-titulo);
+}
+
+article h2::after {
+    content: "¡Oferta!";
+    display: inline-block;
+    vertical-align: middle;
+    background-color: var(--color-acento);
+    color: var(--color-texto-invertido);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-left: var(--espaciado-pequeno);
+}
+
+article p {
+    color: var(--color-texto-suave);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: var(--espaciado-medio);
+}
+
+/* ================= MAIN: BOTONES ================= */
+.btn-comprar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid var(--color-acento);
+    border-radius: 6px;
+    color: var(--color-acento);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-comprar:hover {
+    background-color: var(--color-acento);
+    color: var(--color-texto-invertido);
+    text-decoration: none;
+}
+
+.btn-comprar:active {
+    transform: translateY(2px);
+}
+
+/* ================= FOOTER ================= */
+footer ul li a {
+    color: var(--color-primario);
+    text-decoration: none;
+    display: inline-block;
+    padding: var(--espaciado-pequeno) var(--espaciado-medio);
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+footer ul li a::before {
+    content: "• ";
+    font-weight: bold;
+}
+
+footer ul li a:hover {
+    background-color: var(--color-primario);
+    color: var(--color-texto-invertido);
+}
+
+footer ul li a:active {
+    transform: translateY(2px);
+}
+
+footer ul li a:focus {
+    outline: 2px solid var(--color-secundario);
+    outline-offset: 2px;
+}
