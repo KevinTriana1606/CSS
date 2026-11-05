@@ -1,3 +1,37 @@
+:root {
+    --color-primario: #1e88e5;
+    --color-secundario: #6a1b9a;
+    --color-fondo: #ffffff;
+    --color-texto: #333333;
+
+    --color-texto-titulo: #222222;
+    --color-texto-medio: #444444;
+    --color-texto-suave: #666666;
+    --color-texto-invertido: #ffffff;
+    --color-acento: #d32f2f;
+
+    --color-fondo-header: #e3f2fd;
+    --color-fondo-aside: #f3e5f5;
+    --color-fondo-articulo: #fafafa;
+    --color-fondo-footer: #eceff1;
+
+    --color-titulo-aside: #4a148c;
+    --color-enlace-aside: #6a1b9a;
+    --color-enlace-aside-hover: #9c27b0;
+    --color-texto-footer: #546e7a;
+
+    --color-borde-articulo: #e0e0e0;
+    --color-borde-aside: #e1bee7;
+    --color-borde-footer: #cfd8dc;
+
+    --fuente-principal: 'Poppins', sans-serif;
+
+
+    --espaciado-pequeno: 8px;
+    --espaciado-medio: 16px;
+    --espaciado-grande: 24px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -7,53 +41,51 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: sans-serif;
-    color: #333333;
-    background-color: #ffffff;
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
 }
 
 /* ================= HEADER ================= */
 header {
     width: 100%;
-    background-color: #e3f2fd; /* Azul pastel */
+    background-color: var(--color-fondo-header);
     background-image: url('img/header.jpg');
     background-size: cover;
     background-position: center;
-    padding: 20px;
+    padding: var(--espaciado-grande);
     text-align: center;
 }
 
 header nav ul li {
     display: inline-block;
     font-size: 16px;
-    margin: 0 15px;
+    margin: 0 var(--espaciado-medio);
 }
 
 header nav ul li a {
-    color: #ffffff;
+    color: var(--color-texto-invertido);
     font-weight: bold;
 }
-
-
 
 /* ================= ASIDE (Izquierda) ================= */
 aside {
     float: left;
     width: 25%;
-    padding: 20px;
-    background-color: #f3e5f5;
+    padding: var(--espaciado-grande);
+    background-color: var(--color-fondo-aside);
 }
 
 aside h2 {
     font-size: 1.2rem;
-    color: #4a148c;
-    border-bottom: 1px solid #e1bee7;
-    padding-bottom: 10px;
+    color: var(--color-titulo-aside);
+    border-bottom: 1px solid var(--color-borde-aside);
+    padding-bottom: var(--espaciado-pequeno);
 }
 
 aside ul {
-    padding: 10px;
-    margin: 10px;
+    padding: var(--espaciado-pequeno);
+    margin: var(--espaciado-pequeno);
 }
 
 aside ul li {
@@ -61,43 +93,43 @@ aside ul li {
 }
 
 aside ul li a {
-    color: #6a1b9a;
+    color: var(--color-enlace-aside);
     text-decoration: none;
     font-weight: 500;
 }
 
 aside ul li a:hover {
     text-decoration: underline;
-    color: #9c27b0;
+    color: var(--color-enlace-aside-hover);
 }
 
 /* ================= MAIN (Derecha) ================= */
 main {
     float: right;
     width: 75%;
-    padding: 20px;
-    background-color: #ffffff;
+    padding: var(--espaciado-grande);
+    background-color: var(--color-fondo);
 }
 
 main h1 {
     font-size: 1.5rem;
-    color: #444;
+    color: var(--color-texto-medio);
     margin-top: 0;
 }
 
 section {
-    font-size: 0; 
+    font-size: 0;
 }
 
 /* Cajas de producto (2 por fila) */
 article {
     display: inline-block;
     vertical-align: top;
-    width: 48%; 
+    width: 48%;
     margin: 1%;
-    padding: 20px;
-    background-color: #fafafa;
-    border: 1px solid #e0e0e0;
+    padding: var(--espaciado-grande);
+    background-color: var(--color-fondo-articulo);
+    border: 1px solid var(--color-borde-articulo);
     border-radius: 8px;
     font-size: 16px;
     text-align: left;
@@ -107,19 +139,19 @@ article {
 article h2 {
     font-size: 1.1rem;
     margin-top: 0;
-    color: #222;
+    color: var(--color-texto-titulo);
 }
 
 article p {
-    color: #666;
+    color: var(--color-texto-suave);
     font-size: 0.9rem;
     line-height: 1.4;
 }
 
 .btn-comprar {
     display: inline-block;
-    margin-top: 10px;
-    color: #d32f2f;
+    margin-top: var(--espaciado-pequeno);
+    color: var(--color-acento);
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
@@ -133,16 +165,16 @@ article p {
 footer {
     clear: both;
     width: 100%;
-    background-color: #eceff1;
-    padding: 20px;
+    background-color: var(--color-fondo-footer);
+    padding: var(--espaciado-grande);
     text-align: center;
-    border-top: 1px solid #cfd8dc;
+    border-top: 1px solid var(--color-borde-footer);
 }
 
 footer p {
-    margin: 0 0 10px 0;
+    margin: 0 0 var(--espaciado-pequeno) 0;
     font-size: 0.9rem;
-    color: #546e7a;
+    color: var(--color-texto-footer);
 }
 
 footer ul {
@@ -155,11 +187,11 @@ footer ul {
 footer ul li {
     display: inline-block;
     font-size: 14px;
-    margin: 0 10px;
+    margin: 0 var(--espaciado-pequeno);
 }
 
 footer ul li a {
-    color: #1e88e5;
+    color: var(--color-primario);
     text-decoration: none;
 }
 
